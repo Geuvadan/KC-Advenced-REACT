@@ -1,5 +1,13 @@
 import React from 'react';
 import { apiRegister } from '../../services/api.js';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  withRouter,
+  Redirect,
+} from 'react-router-dom';
 
 export default class Register extends React.Component {
   state = {
@@ -7,10 +15,15 @@ export default class Register extends React.Component {
     password: '',
   };
 
-  handleSubmit = (evt) => {
+  handleSubmit = async (evt) => {
     evt.preventDefault();
-    console.log(this.state);
-    apiRegister(this.state.username, this.state.password);
+    const register = await apiRegister(this.state.username, this.state.password);
+    console.log(register);
+    if (register.success) {
+      this.props.history.push('/login');
+    } else {
+      alert(register.error);
+    }
   };
 
   handleInput = (evt) => {
@@ -45,6 +58,11 @@ export default class Register extends React.Component {
             <button>Crear cuenta</button>
           </div>
         </form>
+        <p>
+          <small>
+            Si ya tienes cuenta, <Link to="/login">haz login</Link>
+          </small>
+        </p>
       </div>
     );
   }
