@@ -9,8 +9,6 @@ import {
 } from 'react-router-dom';
 import { apiLogin } from '../../services/api.js';
 
-//console.log(apiRegister('sidsgvsdf', '1234'));
-
 export default class Login extends React.Component {
   state = {
     username: '',

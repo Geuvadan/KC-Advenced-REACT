@@ -10,6 +10,7 @@ import {
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import Adset from './components/Adset/Adset';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
+        <Route path="/adset" component={Adset} />
         <Redirect to="/login" />
       </Switch>
     </Router>

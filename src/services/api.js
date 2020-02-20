@@ -13,7 +13,6 @@ export const apiRegister = async (username, password) => {
     credentials: 'include',
   });
   const json = await response.json();
-  console.log(json);
   return json;
 };
 
@@ -27,6 +26,18 @@ export const apiLogin = async (username, password) => {
       username,
       password,
     }),
+    credentials: 'include',
+  });
+  const json = await response.json();
+  return json;
+};
+
+export const getAdset = async () => {
+  const adsetEndPoint = `${apiURL}/anuncios`;
+
+  const response = await fetch(adsetEndPoint, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
     credentials: 'include',
   });
   const json = await response.json();
