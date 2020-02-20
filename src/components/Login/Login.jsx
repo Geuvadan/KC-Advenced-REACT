@@ -7,9 +7,9 @@ import {
   withRouter,
   Redirect,
 } from 'react-router-dom';
-import { apiRegister } from '../../services/api.js';
+import { apiLogin } from '../../services/api.js';
 
-console.log(apiRegister('si', '1234'));
+//console.log(apiRegister('sidsgvsdf', '1234'));
 
 export default class Login extends React.Component {
   render() {
@@ -18,11 +18,15 @@ export default class Login extends React.Component {
         <h2>Login</h2>
         <form>
           <div>
-            <label name="username">Nombre de usuario: </label>
+            <label name="username" for="username">
+              Nombre de usuario:{' '}
+            </label>
             <input id="username" type="text" />
           </div>
           <div>
-            <label name="password">Contraseña: </label>
+            <label name="password" for="password">
+              Contraseña:{' '}
+            </label>
             <input id="password" type="password" />
           </div>
           <div>
