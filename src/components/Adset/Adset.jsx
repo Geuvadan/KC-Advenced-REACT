@@ -5,15 +5,23 @@ export default class Adset extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ads: [],
+      ads: this.adset(),
     };
   }
 
   adset = async () => {
     const ads = await getAdset();
-    this.setState({
-      ads: ads.results,
-    });
+    console.log(ads.success);
+    if (ads.success === true) {
+      this.setState({
+        ads: ads.results,
+      });
+    } else if (ads.error === 'Error: Not logged in') {
+      alert('No estás logeado o tu sesión ha caducado, por favor, haz login de nuevo');
+      this.props.history.push('/login');
+    } else {
+      alert('Algo ha ido mal');
+    }
   };
 
   render() {
