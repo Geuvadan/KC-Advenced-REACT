@@ -20,7 +20,7 @@ function App() {
         <Route path="/login" component={Login} />
         <Route path="/register" component={Register} />
         <Route path="/adset" component={Adset} />
-        <Redirect to="/login" />
+        <Redirect to="/adset" />
       </Switch>
     </Router>
   );
