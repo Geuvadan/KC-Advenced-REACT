@@ -1,18 +1,23 @@
 import React from 'react';
-import { getAdset } from '../../services/api';
+import { getAdset, tagsAvailable } from '../../services/api';
 import Ad from '../Ad/Ad';
+import Filters from '../Filters/Filter';
 
 export default class Adset extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       ads: null,
+      tags: null,
     };
   }
 
   async componentDidMount() {
     const ads = await getAdset();
-    console.log(ads.success);
+    this.setState({
+      tags: await tagsAvailable(),
+    });
+    console.log(this.state.tags);
     if (ads.success) {
       this.setState({
         ads: ads.results,
@@ -27,7 +32,14 @@ export default class Adset extends React.Component {
 
   render() {
     if (this.state.ads !== null) {
-      return <Ad data={this.state.ads}></Ad>;
+      console.log(this.state.ads);
+
+      return (
+        <div>
+          <Filters></Filters>
+          <Ad data={this.state.ads}></Ad>
+        </div>
+      );
     } else {
       return <div>Loading... </div>;
     }

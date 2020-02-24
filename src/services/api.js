@@ -41,6 +41,13 @@ export const getAdset = async () => {
     credentials: 'include',
   });
   const json = await response.json();
-  console.log(json);
   return json;
+};
+
+export const tagsAvailable = async () => {
+  const tagsEndPoint = `${apiURL}/tags`;
+
+  const response = await fetch(tagsEndPoint);
+  const json = await response.json();
+  return json.results;
 };

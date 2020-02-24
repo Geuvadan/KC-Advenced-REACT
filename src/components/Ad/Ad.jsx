@@ -9,6 +9,9 @@ export default class Ad extends React.Component {
     return (
       <div key={item._id}>
         <p>{item.name}</p>
+        <p>{item.type}</p>
+        <p>{item.price}</p>
+        <hr />
       </div>
     );
   });
