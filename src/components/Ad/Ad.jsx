@@ -1,11 +1,8 @@
 import React from 'react';
+import { Context } from '../Adset/Context';
 
 export default class Ad extends React.Component {
-  state = {
-    ads: this.props.data,
-  };
-
-  ad = this.state.ads.map((item) => {
+  ad = this.context.ads.map((item) => {
     return (
       <div key={item._id}>
         <p>{item.name}</p>
@@ -20,3 +17,5 @@ export default class Ad extends React.Component {
     return <div>{this.ad}</div>;
   }
 }
+
+Ad.contextType = Context;
