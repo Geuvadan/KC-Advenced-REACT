@@ -6,6 +6,11 @@ export default class Filters extends React.Component {
     super(props);
 
     this.state = this.context;
+    this.state = {
+      selectedTag: null,
+      selectedType: null,
+      selectedPrice: 0,
+    };
   }
 
   selTypeChange = (evt) => {
@@ -23,7 +28,8 @@ export default class Filters extends React.Component {
   };
 
   maxPrice = () => {
-    const prices = this.context.ads.map((ad) => {
+    const { ads } = this.context;
+    const prices = ads.map((ad) => {
       return ad.price;
     });
     return Math.max.apply(Math, prices);
@@ -54,7 +60,7 @@ export default class Filters extends React.Component {
   };
 
   render() {
-    const tags = this.context.tags;
+    const { tags } = this.context;
     return (
       <div>
         <div>Filters</div>

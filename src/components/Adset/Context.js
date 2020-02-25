@@ -1,8 +1,8 @@
 import React from 'react';
 
 const defaultValue = {
-  selectedTag: 'all',
-  selectedType: 'all',
+  selectedTag: null,
+  selectedType: null,
   selectedPrice: null,
 };
 

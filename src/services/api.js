@@ -44,6 +44,18 @@ export const getAdset = async () => {
   return json;
 };
 
+export const getAdsetFiltered = async (queryParams) => {
+  const adsetEndPoint = `${apiURL}/anuncios?${queryParams}`;
+  console.log(adsetEndPoint);
+  const response = await fetch(adsetEndPoint, {
+    method: 'GET',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+  });
+  const json = await response.json();
+  return json;
+};
+
 export const tagsAvailable = async () => {
   const tagsEndPoint = `${apiURL}/tags`;
 
