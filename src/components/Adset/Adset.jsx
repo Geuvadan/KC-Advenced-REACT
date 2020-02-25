@@ -32,7 +32,7 @@ export default class Adset extends React.Component {
       alert('No estás logeado o tu sesión ha caducado, por favor, haz login de nuevo');
       return this.props.history.push('/login');
     } else {
-      return alert('Algo ha ido mal');
+      return alert('Algo ha ido mall');
     }
   }
 
