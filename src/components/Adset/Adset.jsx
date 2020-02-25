@@ -10,14 +10,15 @@ export default class Adset extends React.Component {
     this.state = {
       ads: null,
       tags: null,
+      query: '',
       selectedTag: null,
       selectedType: null,
       selectedPrice: 0,
     };
+    this.getData();
   }
 
-  async componentDidMount() {
-    console.log('didMount');
+  async getData() {
     const ads = await getAdset();
     this.setState({
       tags: await tagsAvailable(),
@@ -35,51 +36,24 @@ export default class Adset extends React.Component {
     }
   }
 
-  queryParams = () => {
-    let queryString = '';
-    if (this.state.selectedTag !== null && this.state.selectedTag !== 'all' && queryString !== '') {
-      queryString += `&tag=${this.state.selectedTag}`;
-    } else if (this.state.selectedTag !== null && this.state.selectedTag !== 'all') {
-      queryString += `tag=${this.state.selectedTag}`;
-    }
-    if (this.state.selectedType === 'buy' && queryString !== '') {
-      queryString += `&venta=false`;
-    } else if (this.state.selectedType === 'buy') {
-      queryString += `venta=false`;
-    }
-    if (this.state.selectedType === 'sell' && queryString !== '') {
-      queryString += `&venta=true`;
-    } else if (this.state.selectedType === 'sell') {
-      queryString += `venta=true`;
-    }
-    if (
-      this.state.selectedPrice !== undefined &&
-      this.state.selectedPrice !== 0 &&
-      queryString !== ''
-    ) {
-      queryString += `&price=1-${this.state.selectedPrice}`;
-    } else if (this.state.selectedPrice !== undefined && this.state.selectedPrice !== 0) {
-      queryString += `price=1-${this.state.selectedPrice}`;
-    }
-    return queryString;
-  };
-
   filteredAds = async () => {
-    const query = this.queryParams();
+    const query = this.state.query;
+    console.log(query);
     const ads = await getAdsetFiltered(query);
     this.setState({
       ads: ads.results,
     });
   };
 
-  saveFilters = async (selectedTag, selectedType, selectedPrice) => {
+  saveFilters = (selectedTag, selectedType, selectedPrice, query) => {
     this.setState({
       selectedTag,
       selectedType,
       selectedPrice,
+      query,
     });
     console.log(this.state);
-    await this.filteredAds();
+    this.filteredAds();
   };
 
   render() {
@@ -95,7 +69,7 @@ export default class Adset extends React.Component {
         >
           <div>
             <Filters></Filters>
-            <Ad ads={this.state.ads}></Ad>
+            <Ad></Ad>
           </div>
         </Context.Provider>
       );

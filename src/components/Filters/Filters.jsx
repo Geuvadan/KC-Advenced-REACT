@@ -7,6 +7,7 @@ export default class Filters extends React.Component {
 
     this.state = this.context;
     this.state = {
+      query: '',
       selectedTag: null,
       selectedType: null,
       selectedPrice: 0,
@@ -50,12 +51,45 @@ export default class Filters extends React.Component {
     });
   };
 
+  queryParams = () => {
+    let queryString = '';
+    if (this.state.selectedTag !== null && this.state.selectedTag !== 'all' && queryString !== '') {
+      queryString += `&tag=${this.state.selectedTag}`;
+    } else if (this.state.selectedTag !== null && this.state.selectedTag !== 'all') {
+      queryString += `tag=${this.state.selectedTag}`;
+    }
+    if (this.state.selectedType === 'buy' && queryString !== '') {
+      queryString += `&venta=false`;
+    } else if (this.state.selectedType === 'buy') {
+      queryString += `venta=false`;
+    }
+    if (this.state.selectedType === 'sell' && queryString !== '') {
+      queryString += `&venta=true`;
+    } else if (this.state.selectedType === 'sell') {
+      queryString += `venta=true`;
+    }
+    if (
+      this.state.selectedPrice !== undefined &&
+      this.state.selectedPrice !== 0 &&
+      queryString !== ''
+    ) {
+      queryString += `&price=1-${this.state.selectedPrice}`;
+    } else if (this.state.selectedPrice !== undefined && this.state.selectedPrice !== 0) {
+      queryString += `price=1-${this.state.selectedPrice}`;
+    }
+    this.setState({
+      query: queryString,
+    });
+  };
+
   filterBtn = (evt) => {
     evt.preventDefault();
+    this.queryParams();
     this.context.saveFilters(
       this.state.selectedTag,
       this.state.selectedType,
-      this.state.selectedPrice
+      this.state.selectedPrice,
+      this.state.query
     );
   };
 
