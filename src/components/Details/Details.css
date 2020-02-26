@@ -1,0 +1,18 @@
+.details-main {
+  width: 80%;
+  margin: 50px auto;
+  padding: 1rem;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+}
+
+@media all and (min-width: 768px) {
+  .details-main {
+    width: 65%;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .details-main {
+    width: 50%;
+  }
+}

@@ -11,9 +11,6 @@ import {
 } from 'react-router-dom';
 
 export default class Ad extends React.Component {
-  detailBtn = (id) => {
-    console.log(id);
-  };
   ad = () =>
     this.context.ads.map((item) => {
       return (
@@ -28,7 +25,7 @@ export default class Ad extends React.Component {
             <b>Precio:</b> {item.price}€
           </p>
 
-          <Link className="button" to="/detail">
+          <Link className="button" to={`/details/${item._id}`}>
             Más Información
           </Link>
         </div>
