@@ -1,12 +1,13 @@
 import React from 'react';
+import './Register.css';
 import { apiRegister } from '../../services/api.js';
 import {
-  BrowserRouter as Link,
-  /* Router,
+  BrowserRouter as Router,
+  Link,
   Route,
   Switch,
   withRouter,
-  Redirect, */
+  Redirect,
 } from 'react-router-dom';
 
 export default class Register extends React.Component {
@@ -43,7 +44,7 @@ export default class Register extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="register-main">
         <h2>Register</h2>
         <form onSubmit={this.handleSubmit}>
           <div>

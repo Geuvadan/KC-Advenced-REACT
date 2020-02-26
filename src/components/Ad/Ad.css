@@ -1,0 +1,38 @@
+.button {
+  margin-top: 0.5rem;
+  width: 100%;
+  position: relative;
+  bottom: 0px;
+  display: block;
+  line-height: 2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: lightgrey;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+}
+
+.ads-grid {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 3rem;
+}
+
+.ad {
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+}
+
+@media all and (min-width: 768px) {
+  .ads-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .ads-grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

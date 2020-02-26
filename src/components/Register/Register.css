@@ -1,0 +1,26 @@
+.register-main {
+  width: 80%;
+  margin: 50px auto;
+  box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
+  padding: 1rem;
+  text-align: center;
+  line-height: 2rem;
+}
+
+input {
+  line-height: 1.5rem;
+  font-size: 1rem;
+  border: 1px solid darkgrey;
+}
+
+@media all and (min-width: 768px) {
+  .register-main {
+    width: 50%;
+  }
+}
+
+@media all and (min-width: 992px) {
+  .register-main {
+    width: 40%;
+  }
+}

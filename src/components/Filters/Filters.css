@@ -1,0 +1,38 @@
+.filters-main {
+  min-height: 3rem;
+  padding: 0.5rem;
+  line-height: 2rem;
+  background-color: lightgrey;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+}
+
+.filters-form {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+select {
+  height: 2rem;
+  background-color: #fff;
+}
+
+.btn {
+  height: 2rem;
+  padding: 0.5rem;
+  font-size: 1rem;
+  background: darkgrey;
+  cursor: pointer;
+}
+
+.input-price {
+  width: 4rem;
+  height: 2rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+fieldset {
+  border: none;
+}

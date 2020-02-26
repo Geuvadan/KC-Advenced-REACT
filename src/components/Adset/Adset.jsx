@@ -1,4 +1,5 @@
 import React from 'react';
+import './Adset.css';
 import { getAdset, getAdsetFiltered, tagsAvailable } from '../../services/api';
 import Ad from '../Ad/Ad';
 import Filters from '../Filters/Filters';
@@ -68,11 +69,12 @@ export default class Adset extends React.Component {
     this.filteredAds(query);
   };
 
+  moreInfoBtn = (id) => {
+    alert(`hola ${id}`);
+  };
+
   render() {
     if (this.state.ads !== null) {
-      console.log(this.state);
-      console.log(this.state.ads);
-
       return (
         <Context.Provider
           value={{
@@ -81,12 +83,15 @@ export default class Adset extends React.Component {
             saveType: this.saveType,
             savePrice: this.savePrice,
             saveQuery: this.saveQuery,
+            moreInfoBtn: this.moreInfoBtn,
             ...this.state,
           }}
         >
-          <div>
+          <div className="main">
             <Filters></Filters>
-            <Ad></Ad>
+            <div>
+              <Ad></Ad>
+            </div>
           </div>
         </Context.Provider>
       );

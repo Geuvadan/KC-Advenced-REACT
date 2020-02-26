@@ -1,11 +1,12 @@
 import React from 'react';
+import './Login.css';
 import {
-  BrowserRouter as Link,
-  // Router,
-  // Route,
-  // Switch,
-  // withRouter,
-  // Redirect,
+  BrowserRouter as Router,
+  Link,
+  Route,
+  Switch,
+  withRouter,
+  Redirect,
 } from 'react-router-dom';
 import { apiLogin } from '../../services/api.js';
 
@@ -43,7 +44,7 @@ export default class Login extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="login-main">
         <h2>Login</h2>
         <form onSubmit={this.handleSubmit}>
           <div>

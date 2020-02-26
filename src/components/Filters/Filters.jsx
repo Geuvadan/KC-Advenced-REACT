@@ -1,4 +1,5 @@
 import React from 'react';
+import './Filters.css';
 import { Context } from '../Adset/Context';
 
 export default class Filters extends React.Component {
@@ -95,38 +96,48 @@ export default class Filters extends React.Component {
   render() {
     const { tags } = this.context;
     return (
-      <div>
+      <div className="filters-main">
         <div>Filters</div>
-        <form onSubmit={this.filterBtn}>
-          <label>Operación: </label>
-          <select onChange={this.selTypeChange}>
-            <option value="all">Todas</option>
-            <option value="buy">Compra</option>
-            <option value="sell">Venta</option>
-          </select>
-          <label>Tag: </label>
-          <select onChange={this.selTagChange}>
-            <option value="all">Todas</option>
-            {tags.map((tag, index) => (
-              <option key={index} value={tag}>
-                {tag}
-              </option>
-            ))}
-          </select>
-          <label>Precio máximo: </label>
-          <input
-            id="priceSelector"
-            type="range"
-            min="0"
-            max={this.maxPrice()}
-            onChange={this.selPriceRangeChange}
-          />
+        <form className="filters-form" onSubmit={this.filterBtn}>
+          <fieldset>
+            <label>Operación: </label>
+            <select onChange={this.selTypeChange}>
+              <option value="all">Todas</option>
+              <option value="buy">Compra</option>
+              <option value="sell">Venta</option>
+            </select>
+          </fieldset>
+          <fieldset>
+            <label>Tag: </label>
+            <select onChange={this.selTagChange}>
+              <option value="all">Todas</option>
+              {tags.map((tag, index) => (
+                <option key={index} value={tag}>
+                  {tag}
+                </option>
+              ))}
+            </select>
+          </fieldset>
+          <fieldset>
+            <label>Precio máximo: </label>
+            <input
+              id="priceSelector"
+              type="range"
+              min="0"
+              max={this.maxPrice()}
+              onChange={this.selPriceRangeChange}
+            />
 
-          <input type="text" id="price" onChange={this.inputPriceChange} />
+            <input
+              className="input-price"
+              type="text"
+              id="price"
+              onChange={this.inputPriceChange}
+            />
+          </fieldset>
 
-          <input type="submit" />
+          <input className="btn" type="submit" />
         </form>
-        <hr />
       </div>
     );
   }
