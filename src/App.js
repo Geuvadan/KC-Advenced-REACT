@@ -2,9 +2,9 @@ import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
-  Link,
+  // Link,
   Switch,
-  withRouter,
+  // withRouter,
   Redirect,
 } from 'react-router-dom';
 import Header from './components/Header/Header';

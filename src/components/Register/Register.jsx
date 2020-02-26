@@ -1,12 +1,12 @@
 import React from 'react';
 import { apiRegister } from '../../services/api.js';
 import {
-  BrowserRouter as Router,
+  BrowserRouter as Link,
+  /* Router,
   Route,
-  Link,
   Switch,
   withRouter,
-  Redirect,
+  Redirect, */
 } from 'react-router-dom';
 
 export default class Register extends React.Component {

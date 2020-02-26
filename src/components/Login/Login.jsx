@@ -1,11 +1,11 @@
 import React from 'react';
 import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  withRouter,
-  Redirect,
+  BrowserRouter as Link,
+  // Router,
+  // Route,
+  // Switch,
+  // withRouter,
+  // Redirect,
 } from 'react-router-dom';
 import { apiLogin } from '../../services/api.js';
 

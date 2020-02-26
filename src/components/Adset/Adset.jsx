@@ -68,17 +68,6 @@ export default class Adset extends React.Component {
     this.filteredAds(query);
   };
 
-  saveFilters = (selectedTag, selectedType, selectedPrice, query) => {
-    this.setState({
-      selectedTag,
-      selectedType,
-      selectedPrice,
-      query,
-    });
-    console.log(this.state);
-    this.filteredAds();
-  };
-
   render() {
     if (this.state.ads !== null) {
       console.log(this.state);
