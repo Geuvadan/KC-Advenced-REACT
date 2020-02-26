@@ -2,19 +2,20 @@ import React from 'react';
 import { Context } from '../Adset/Context';
 
 export default class Ad extends React.Component {
-  ad = this.context.ads.map((item) => {
-    return (
-      <div key={item._id}>
-        <p>{item.name}</p>
-        <p>{item.type}</p>
-        <p>{item.price}</p>
-        <hr />
-      </div>
-    );
-  });
+  ad = () =>
+    this.context.ads.map((item) => {
+      return (
+        <div key={item._id}>
+          <p>{item.name}</p>
+          <p>{item.type}</p>
+          <p>{item.price}</p>
+          <hr />
+        </div>
+      );
+    });
 
   render() {
-    return <div>{this.ad}</div>;
+    return <div>{this.ad()}</div>;
   }
 }
 

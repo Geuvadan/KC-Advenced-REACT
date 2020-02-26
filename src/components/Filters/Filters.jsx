@@ -16,6 +16,7 @@ export default class Filters extends React.Component {
 
   selTypeChange = (evt) => {
     console.log(evt.target.value);
+    this.context.saveType(evt.target.value);
     this.setState({
       selectedType: evt.target.value,
     });
@@ -23,6 +24,7 @@ export default class Filters extends React.Component {
 
   selTagChange = (evt) => {
     console.log(evt.target.value);
+    this.context.saveTag(evt.target.value);
     this.setState({
       selectedTag: evt.target.value,
     });
@@ -39,6 +41,7 @@ export default class Filters extends React.Component {
   selPriceRangeChange = (evt) => {
     console.log(evt.target.value);
     document.getElementById('price').value = document.getElementById('priceSelector').value;
+    this.context.savePrice(evt.target.value);
     this.setState({
       selectedPrice: evt.target.value,
     });
@@ -46,6 +49,7 @@ export default class Filters extends React.Component {
 
   inputPriceChange = (evt) => {
     console.log(evt.target.value);
+    this.context.savePrice(evt.target.value);
     this.setState({
       selectedPrice: evt.target.value,
     });
@@ -77,20 +81,15 @@ export default class Filters extends React.Component {
     } else if (this.state.selectedPrice !== undefined && this.state.selectedPrice !== 0) {
       queryString += `price=1-${this.state.selectedPrice}`;
     }
-    this.setState({
-      query: queryString,
-    });
+
+    return queryString;
   };
 
   filterBtn = (evt) => {
     evt.preventDefault();
-    this.queryParams();
-    this.context.saveFilters(
-      this.state.selectedTag,
-      this.state.selectedType,
-      this.state.selectedPrice,
-      this.state.query
-    );
+    const params = this.queryParams();
+    console.log(params);
+    this.context.saveQuery(params);
   };
 
   render() {
@@ -98,7 +97,7 @@ export default class Filters extends React.Component {
     return (
       <div>
         <div>Filters</div>
-        <form>
+        <form onSubmit={this.filterBtn}>
           <label>Operación: </label>
           <select onChange={this.selTypeChange}>
             <option value="all">Todas</option>
@@ -125,7 +124,7 @@ export default class Filters extends React.Component {
 
           <input type="text" id="price" onChange={this.inputPriceChange} />
 
-          <button onClick={this.filterBtn}>Filtrar</button>
+          <input type="submit" />
         </form>
         <hr />
       </div>

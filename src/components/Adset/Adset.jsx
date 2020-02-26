@@ -10,7 +10,7 @@ export default class Adset extends React.Component {
     this.state = {
       ads: null,
       tags: null,
-      query: '',
+      query: null,
       selectedTag: null,
       selectedType: null,
       selectedPrice: 0,
@@ -36,13 +36,36 @@ export default class Adset extends React.Component {
     }
   }
 
-  filteredAds = async () => {
-    const query = this.state.query;
-    console.log(query);
+  filteredAds = async (query) => {
     const ads = await getAdsetFiltered(query);
     this.setState({
       ads: ads.results,
     });
+  };
+
+  saveTag = (selectedTag) => {
+    this.setState({
+      selectedTag,
+    });
+  };
+
+  saveType = (selectedType) => {
+    this.setState({
+      selectedType,
+    });
+  };
+
+  savePrice = (selectedPrice) => {
+    this.setState({
+      selectedPrice,
+    });
+  };
+
+  saveQuery = (query) => {
+    this.setState({
+      query,
+    });
+    this.filteredAds(query);
   };
 
   saveFilters = (selectedTag, selectedType, selectedPrice, query) => {
@@ -58,12 +81,17 @@ export default class Adset extends React.Component {
 
   render() {
     if (this.state.ads !== null) {
+      console.log(this.state);
       console.log(this.state.ads);
 
       return (
         <Context.Provider
           value={{
             saveFilters: this.saveFilters,
+            saveTag: this.saveTag,
+            saveType: this.saveType,
+            savePrice: this.savePrice,
+            saveQuery: this.saveQuery,
             ...this.state,
           }}
         >
