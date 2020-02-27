@@ -56,7 +56,7 @@ export default class Register extends React.Component {
             <input name="password" type="password" onChange={this.handleInput} />
           </div>
           <div>
-            <button>Crear cuenta</button>
+            <button className="button">Crear cuenta</button>
           </div>
         </form>
         <p>

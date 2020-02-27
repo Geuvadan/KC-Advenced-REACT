@@ -5,6 +5,34 @@
   box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.5);
 }
 
+.title {
+  text-align: center;
+}
+
+.typeAndPrice {
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+}
+
+.lastUpdate {
+  padding: 1rem;
+  text-align: right;
+}
+
+.button {
+  margin-top: 0.5rem;
+  width: 100%;
+  position: relative;
+  bottom: 0px;
+  display: block;
+  line-height: 2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-color: lightgrey;
+  color: black;
+}
+
 @media all and (min-width: 768px) {
   .details-main {
     width: 65%;

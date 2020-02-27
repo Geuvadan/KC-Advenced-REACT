@@ -46,21 +46,41 @@ class Details extends React.Component {
     });
   };
 
+  backBtn = () => {
+    console.log(this.props.history);
+    this.props.history.goBack();
+  };
+
   render() {
     if (this.state.ad !== null) {
       const { ad } = this.state;
       console.log('render ad', ad);
       return (
         <div className="details-main">
-          <h2>{ad.name}</h2>
-          <div>
-            <p>Operación: {ad.type === 'sell' ? 'Venta' : 'Compra'}</p>
-            <p>Precio {ad.price}€</p>
+          <div className="title">
+            <h2>{ad.name}</h2>
           </div>
-          <div>Descripción: {ad.description}</div>
-          <p>
-            <small>Última actualización: {ad.updatedAt.slice(0, 10)}</small>
+          <div className="typeAndPrice">
+            <p>
+              <strong>Operación:</strong> {ad.type === 'sell' ? 'Venta' : 'Compra'}
+            </p>
+            <p>
+              <strong>Precio:</strong> {ad.price}€
+            </p>
+          </div>
+          <div>
+            <strong>Descripción:</strong> {ad.description}
+          </div>
+          <p className="lastUpdate">
+            <small>
+              <em>Última actualización: {ad.updatedAt.slice(0, 10)}</em>
+            </small>
           </p>
+          <div>
+            <button className="button" onClick={this.backBtn}>
+              Volver
+            </button>
+          </div>
         </div>
       );
     } else {
