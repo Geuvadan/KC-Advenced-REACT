@@ -36,14 +36,18 @@ class Details extends React.Component {
   };
 
   dataFilter = async (id) => {
-    const ads = await this.getData();
-    console.log('ads dataFilter', ads);
+    try {
+      const ads = await this.getData();
+      console.log('ads dataFilter', ads);
 
-    const ad = ads.filter((ad) => ad._id === id);
-    console.log('ad dataFilter', ad[0]);
-    this.setState({
-      ad: ad[0],
-    });
+      const ad = ads.filter((ad) => ad._id === id);
+      console.log('ad dataFilter', ad[0]);
+      this.setState({
+        ad: ad[0],
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   backBtn = () => {
