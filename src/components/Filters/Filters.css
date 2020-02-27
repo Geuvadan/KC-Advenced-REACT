@@ -27,6 +27,8 @@ select {
   font-size: 0.8rem;
   background: darkgrey;
   cursor: pointer;
+  text-decoration: none;
+  color: black;
 }
 
 .input-name {

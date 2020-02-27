@@ -13,6 +13,7 @@ import Login from './components/Login/Login';
 import Register from './components/Register/Register';
 import Adset from './components/Adset/Adset';
 import Details from './components/Details/Details';
+import CreateAd from './components/CreateAd/CreateAd';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/register" component={Register} />
         <Route path="/adset" component={Adset} />
         <Route path="/details/:id" component={Details} />
+        <Route path="/createad" component={CreateAd} />
 
         <Redirect to="/adset" />
       </Switch>

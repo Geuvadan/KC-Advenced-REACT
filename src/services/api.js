@@ -63,3 +63,16 @@ export const tagsAvailable = async () => {
   const json = await response.json();
   return json.results;
 };
+
+export const createAd = async (data) => {
+  const adsetEndPoint = `${apiURL}/anuncios`;
+
+  const response = await fetch(adsetEndPoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    credentials: 'include',
+    body: JSON.stringify(data),
+  });
+  const json = await response.json();
+  return json;
+};

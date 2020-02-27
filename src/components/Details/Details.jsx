@@ -51,7 +51,6 @@ class Details extends React.Component {
   };
 
   backBtn = () => {
-    console.log(this.props.history);
     this.props.history.goBack();
   };
 

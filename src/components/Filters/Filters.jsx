@@ -1,6 +1,15 @@
 import React from 'react';
 import './Filters.css';
 import { Context } from '../Adset/Context';
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Switch,
+  withRouter,
+  Redirect,
+  useParams,
+} from 'react-router-dom';
 
 export default class Filters extends React.Component {
   constructor(props) {
@@ -122,7 +131,11 @@ export default class Filters extends React.Component {
     const { tags } = this.context;
     return (
       <div className="filters-main">
-        <div>Filters</div>
+        <div>
+          <Link className="btn" to="/createad">
+            +Ad
+          </Link>
+        </div>
         <form className="filters-form" onSubmit={this.filterBtn}>
           <fieldset>
             <label>Nombre: </label>
