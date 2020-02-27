@@ -9,6 +9,7 @@ export default class Filters extends React.Component {
     this.state = this.context;
     this.state = {
       query: '',
+      inputName: null,
       selectedTag: null,
       selectedType: null,
       selectedPrice: 0,
@@ -56,8 +57,22 @@ export default class Filters extends React.Component {
     });
   };
 
+  inputNameChange = (evt) => {
+    console.log(evt.target.value);
+    this.context.saveName(evt.target.value);
+    this.setState({
+      inputName: evt.target.value,
+    });
+  };
+
   queryParams = () => {
     let queryString = '';
+    if (this.state.inputName !== null && queryString !== '') {
+      queryString += `&name=${this.state.inputName}`;
+    } else if (this.state.inputName !== null) {
+      queryString += `name=${this.state.inputName}`;
+    }
+
     if (this.state.selectedTag !== null && this.state.selectedTag !== 'all' && queryString !== '') {
       queryString += `&tag=${this.state.selectedTag}`;
     } else if (this.state.selectedTag !== null && this.state.selectedTag !== 'all') {
@@ -93,12 +108,26 @@ export default class Filters extends React.Component {
     this.context.saveQuery(params);
   };
 
+  resetBtn = () => {
+    this.setState({
+      query: '',
+      inputName: null,
+      selectedTag: null,
+      selectedType: null,
+      selectedPrice: 0,
+    });
+  };
+
   render() {
     const { tags } = this.context;
     return (
       <div className="filters-main">
         <div>Filters</div>
         <form className="filters-form" onSubmit={this.filterBtn}>
+          <fieldset>
+            <label>Nombre: </label>
+            <input className="input-name" type="text" onChange={this.inputNameChange} />
+          </fieldset>
           <fieldset>
             <label>Operación: </label>
             <select onChange={this.selTypeChange}>
@@ -137,6 +166,7 @@ export default class Filters extends React.Component {
           </fieldset>
 
           <input className="btn" type="submit" />
+          <input className="btn" type="reset" onClick={this.resetBtn} />
         </form>
       </div>
     );

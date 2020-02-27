@@ -12,6 +12,7 @@ export default class Adset extends React.Component {
       ads: null,
       tags: null,
       query: null,
+      inputName: null,
       selectedTag: null,
       selectedType: null,
       selectedPrice: 0,
@@ -62,6 +63,12 @@ export default class Adset extends React.Component {
     });
   };
 
+  saveName = (inputName) => {
+    this.setState({
+      inputName,
+    });
+  };
+
   saveQuery = (query) => {
     this.setState({
       query,
@@ -79,6 +86,7 @@ export default class Adset extends React.Component {
         <Context.Provider
           value={{
             saveFilters: this.saveFilters,
+            saveName: this.saveName,
             saveTag: this.saveTag,
             saveType: this.saveType,
             savePrice: this.savePrice,

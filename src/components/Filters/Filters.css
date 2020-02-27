@@ -26,6 +26,13 @@ select {
   cursor: pointer;
 }
 
+.input-name {
+  width: 6rem;
+  height: 2rem;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
 .input-price {
   width: 4rem;
   height: 2rem;
