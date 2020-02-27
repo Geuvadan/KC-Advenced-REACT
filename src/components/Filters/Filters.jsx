@@ -150,6 +150,7 @@ export default class Filters extends React.Component {
           <fieldset>
             <label>Precio máximo: </label>
             <input
+              className="rangePrice"
               id="priceSelector"
               type="range"
               min="0"
@@ -165,8 +166,10 @@ export default class Filters extends React.Component {
             />
           </fieldset>
 
-          <input className="btn" type="submit" />
-          <input className="btn" type="reset" onClick={this.resetBtn} />
+          <fieldset>
+            <input className="btn" type="submit" />
+            <input className="btn" type="reset" onClick={this.resetBtn} />
+          </fieldset>
         </form>
       </div>
     );

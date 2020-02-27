@@ -4,7 +4,8 @@
   line-height: 2rem;
   background-color: lightgrey;
   display: grid;
-  grid-template-columns: 1fr 4fr;
+  grid-template-columns: 0.5fr 5fr;
+  font-size: 0.8rem;
 }
 
 .filters-form {
@@ -16,30 +17,43 @@
 select {
   height: 2rem;
   background-color: #fff;
+  width: 3rem;
 }
 
 .btn {
   height: 2rem;
   padding: 0.5rem;
-  font-size: 1rem;
+  margin: 0 0.3rem;
+  font-size: 0.8rem;
   background: darkgrey;
   cursor: pointer;
 }
 
 .input-name {
-  width: 6rem;
+  width: 5rem;
   height: 2rem;
   font-size: 1rem;
   margin-left: 0.5rem;
 }
 
 .input-price {
-  width: 4rem;
+  width: 3rem;
   height: 2rem;
   font-size: 1rem;
   margin-left: 0.5rem;
 }
 
+.rangePrice {
+  width: 4rem;
+}
+
 fieldset {
   border: none;
+  margin: 0 0.5rem;
+}
+
+@media all and (max-width: 1090px) {
+  .rangePrice {
+    display: none;
+  }
 }

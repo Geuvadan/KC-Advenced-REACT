@@ -76,10 +76,6 @@ export default class Adset extends React.Component {
     this.filteredAds(query);
   };
 
-  moreInfoBtn = (id) => {
-    alert(`hola ${id}`);
-  };
-
   render() {
     if (this.state.ads !== null) {
       return (
@@ -91,7 +87,6 @@ export default class Adset extends React.Component {
             saveType: this.saveType,
             savePrice: this.savePrice,
             saveQuery: this.saveQuery,
-            moreInfoBtn: this.moreInfoBtn,
             ...this.state,
           }}
         >
