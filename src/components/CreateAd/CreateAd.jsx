@@ -21,9 +21,7 @@ export default class CreateAd extends React.Component {
       type: this.state.type,
       photo: this.state.photo,
     };
-    console.log(ad);
     const resp = await createAd(ad);
-    console.log(resp);
     if (resp.success) {
       this.props.history.push('/adset');
     } else {
@@ -33,7 +31,6 @@ export default class CreateAd extends React.Component {
 
   getTags = async () => {
     const tagList = await tagsAvailable();
-    console.log(tagList);
     this.setState({
       tagList,
     });
@@ -78,7 +75,6 @@ export default class CreateAd extends React.Component {
   render() {
     if (this.state.tagList !== null) {
       const { tagList } = this.state;
-      console.log(this.state);
       return (
         <div className="create-ads-main">
           <h2 className="title">Creación de anuncio</h2>

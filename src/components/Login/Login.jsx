@@ -19,7 +19,6 @@ export default class Login extends React.Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     const login = await apiLogin(this.state.username, this.state.password);
-    console.log(login);
     if (login.success) {
       this.props.history.push('/adset');
     } else {

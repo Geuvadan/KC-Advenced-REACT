@@ -19,7 +19,6 @@ export default class Register extends React.Component {
   handleSubmit = async (evt) => {
     evt.preventDefault();
     const register = await apiRegister(this.state.username, this.state.password);
-    console.log(register);
     if (register.success) {
       this.props.history.push('/login');
     } else {

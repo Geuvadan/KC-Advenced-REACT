@@ -26,7 +26,6 @@ export default class Filters extends React.Component {
   }
 
   selTypeChange = (evt) => {
-    console.log(evt.target.value);
     this.context.saveType(evt.target.value);
     this.setState({
       selectedType: evt.target.value,
@@ -34,7 +33,6 @@ export default class Filters extends React.Component {
   };
 
   selTagChange = (evt) => {
-    console.log(evt.target.value);
     this.context.saveTag(evt.target.value);
     this.setState({
       selectedTag: evt.target.value,
@@ -50,7 +48,6 @@ export default class Filters extends React.Component {
   };
 
   selPriceRangeChange = (evt) => {
-    console.log(evt.target.value);
     document.getElementById('price').value = document.getElementById('priceSelector').value;
     this.context.savePrice(evt.target.value);
     this.setState({
@@ -59,7 +56,6 @@ export default class Filters extends React.Component {
   };
 
   inputPriceChange = (evt) => {
-    console.log(evt.target.value);
     this.context.savePrice(evt.target.value);
     this.setState({
       selectedPrice: evt.target.value,
@@ -67,7 +63,6 @@ export default class Filters extends React.Component {
   };
 
   inputNameChange = (evt) => {
-    console.log(evt.target.value);
     this.context.saveName(evt.target.value);
     this.setState({
       inputName: evt.target.value,
@@ -113,7 +108,6 @@ export default class Filters extends React.Component {
   filterBtn = (evt) => {
     evt.preventDefault();
     const params = this.queryParams();
-    console.log(params);
     this.context.saveQuery(params);
   };
 

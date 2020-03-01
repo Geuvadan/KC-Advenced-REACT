@@ -25,7 +25,6 @@ export default class Adset extends React.Component {
     this.setState({
       tags: await tagsAvailable(),
     });
-    console.log(this.state.tags);
     if (ads.success) {
       this.setState({
         ads: ads.results,

@@ -19,13 +19,11 @@ class Details extends React.Component {
       ad: null,
       id: this.props.match.params.id,
     };
-    console.log('constructor id', this.state.id);
     this.dataFilter(this.state.id);
   }
 
   getData = async () => {
     const ads = await getAdset();
-    console.log('ads getData', ads);
 
     if (ads.error === 'Error: Not logged in') {
       alert('No estás logeado o tu sesión ha caducado, por favor, haz login de nuevo');
@@ -38,10 +36,8 @@ class Details extends React.Component {
   dataFilter = async (id) => {
     try {
       const ads = await this.getData();
-      console.log('ads dataFilter', ads);
 
       const ad = ads.filter((ad) => ad._id === id);
-      console.log('ad dataFilter', ad[0]);
       this.setState({
         ad: ad[0],
       });
@@ -57,7 +53,6 @@ class Details extends React.Component {
   render() {
     if (this.state.ad !== null) {
       const { ad } = this.state;
-      console.log('render ad', ad);
       return (
         <div className="details-main">
           <div className="title">
