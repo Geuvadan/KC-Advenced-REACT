@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { createBrowserHistory } from 'history';
+
+import Root from './components/Root';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import * as AdsApi from './services/api';
+import { configureStore } from './store';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const history = createBrowserHistory();
+const store = configureStore({ AdsApi, history })();
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+ReactDOM.render(<Root store={store} history={history} />, document.getElementById('root'));
