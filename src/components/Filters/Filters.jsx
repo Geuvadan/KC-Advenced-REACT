@@ -1,15 +1,7 @@
 import React from 'react';
 import './Filters.css';
 import { Context } from '../Adset/Context';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  withRouter,
-  Redirect,
-  useParams,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 export default class Filters extends React.Component {
   constructor(props) {
@@ -109,6 +101,7 @@ export default class Filters extends React.Component {
     evt.preventDefault();
     const params = this.queryParams();
     this.context.saveQuery(params);
+    this.props.setFilter(params);
   };
 
   resetBtn = () => {

@@ -25,3 +25,13 @@ export const fetchAds = () =>
       dispatch(fetchAdsFailure(error));
     }
   };
+
+export const setFilter = (queryFilter) => ({
+  type: TYPES.SET_FILTER,
+  queryFilter,
+});
+
+export const setLogin = (login) => ({
+  type: TYPES.SET_LOGIN,
+  login,
+});

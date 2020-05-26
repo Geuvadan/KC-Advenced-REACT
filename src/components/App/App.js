@@ -1,13 +1,22 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Switch, Redirect } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
 import Header from '../Header/Header';
 import Login from '../Login/Login';
 import Register from '../Register/Register';
-import Adset from '../Adset/Adset';
+import Adset from '../Adset';
 import Details from '../Details/Details';
 import CreateAd from '../CreateAd/CreateAd';
+import { fetchAds } from '../../store/actions';
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchAds());
+  }, [dispatch]);
+
   return (
     <div>
       <Header></Header>

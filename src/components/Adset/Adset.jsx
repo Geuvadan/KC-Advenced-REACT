@@ -1,8 +1,8 @@
 import React from 'react';
 import './Adset.css';
 import { getAdset, getAdsetFiltered, tagsAvailable } from '../../services/api';
-import Ad from '../Ad/Ad';
-import Filters from '../Filters/Filters';
+import Ad from '../Ad';
+import Filters from '../Filters';
 import { Context } from './Context.js';
 
 export default class Adset extends React.Component {
@@ -72,7 +72,7 @@ export default class Adset extends React.Component {
     this.setState({
       query,
     });
-    this.filteredAds(query);
+    this.filteredAds(this.props.queryFilter);
   };
 
   render() {

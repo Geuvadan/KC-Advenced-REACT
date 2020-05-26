@@ -1,5 +1,8 @@
-// export const LOGGED_IN = 'LOGGED_IN';
+export const SET_LOGIN = 'SET_LOGIN';
 
 export const FETCH_ADS_REQUEST = 'FETCH_ADS_REQUEST';
 export const FETCH_ADS_SUCCESS = 'FETCH_ADS_SUCCESS';
 export const FETCH_ADS_FAILURE = 'FETCH_ADS_FAILURE';
+
+export const SET_FILTER = 'SET_FILTER';
+export const DELETE_FILTER = 'DELETE_FILTER';
