@@ -1,14 +1,6 @@
 import React from 'react';
 import './Details.css';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Switch,
-  withRouter,
-  Redirect,
-  useParams,
-} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { getAdset } from '../../services/api';
 
 class Details extends React.Component {

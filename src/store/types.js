@@ -1,4 +1,4 @@
-export const SET_LOGIN = 'SET_LOGIN';
+export const SET_USERNAME = 'SET_USERNAME';
 
 export const FETCH_ADS_REQUEST = 'FETCH_ADS_REQUEST';
 export const FETCH_ADS_SUCCESS = 'FETCH_ADS_SUCCESS';

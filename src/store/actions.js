@@ -56,7 +56,7 @@ export const setFilter = (queryFilter) => ({
   queryFilter,
 });
 
-export const setLogin = (login) => ({
-  type: TYPES.SET_LOGIN,
-  login,
+export const setUsername = (username) => ({
+  type: TYPES.SET_USERNAME,
+  username,
 });

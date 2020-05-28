@@ -2,15 +2,15 @@ import * as TYPES from './types';
 
 const initialState = {
   ads: [],
-  userLoggedIn: false,
+  username: null,
   queryFilter: '',
   tagsAvailable: [],
 };
 
-export function userLoggedIn(state = initialState.userLoggedIn, action) {
+export function setUsername(state = initialState.username, action) {
   switch (action.type) {
-    case TYPES.SET_LOGIN:
-      return action.login;
+    case TYPES.SET_USERNAME:
+      return action.username;
 
     default:
       return state;

@@ -5,7 +5,7 @@ import Filters from '../Filters';
 
 export default class Adset extends React.Component {
   render() {
-    if (this.props.ads !== null) {
+    if (this.props.ads.length > 0) {
       return (
         <div className="main">
           <Filters></Filters>
@@ -15,6 +15,7 @@ export default class Adset extends React.Component {
         </div>
       );
     } else {
+      //this.props.history.push('/login');
       return <div>Loading... </div>;
     }
   }

@@ -1,13 +1,6 @@
 import React from 'react';
 import './Login.css';
-import {
-  BrowserRouter as Router,
-  Link,
-  Route,
-  Switch,
-  withRouter,
-  Redirect,
-} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { apiLogin } from '../../services/api.js';
 
 export default class Login extends React.Component {
@@ -20,6 +13,8 @@ export default class Login extends React.Component {
     evt.preventDefault();
     const login = await apiLogin(this.state.username, this.state.password);
     if (login.success) {
+      localStorage.setItem('username', this.state.username);
+      await this.props.fetchAds();
       this.props.history.push('/adset');
     } else {
       alert(login.error);
