@@ -15,14 +15,39 @@ export const fetchAdsSuccess = (ads) => ({
   ads,
 });
 
-export const fetchAds = () =>
+export const fetchAds = (query) =>
   async function (dispatch, getState) {
-    dispatch(fetchAdsRequest());
+    dispatch(fetchAdsRequest(query));
     try {
-      const ads = await AdsApi.getAdset();
+      const ads = await AdsApi.getAdset(query);
       dispatch(fetchAdsSuccess(ads));
     } catch (error) {
       dispatch(fetchAdsFailure(error));
+    }
+  };
+
+export const fetchTagsRequest = () => ({
+  type: TYPES.FETCH_TAGS_REQUEST,
+});
+
+export const fetchTagsFailure = (error) => ({
+  type: TYPES.FETCH_TAGS_FAILURE,
+  error,
+});
+
+export const fetchTagsSuccess = (tags) => ({
+  type: TYPES.FETCH_TAGS_SUCCESS,
+  tagsAvailable: tags,
+});
+
+export const fetchTags = () =>
+  async function (dispatch, getState) {
+    dispatch(fetchTagsRequest());
+    try {
+      const tags = await AdsApi.tagsAvailable();
+      dispatch(fetchTagsSuccess(tags));
+    } catch (error) {
+      dispatch(fetchTagsFailure(error));
     }
   };
 

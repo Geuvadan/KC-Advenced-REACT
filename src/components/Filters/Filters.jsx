@@ -1,15 +1,12 @@
 import React from 'react';
 import './Filters.css';
-import { Context } from '../Adset/Context';
 import { Link } from 'react-router-dom';
 
 export default class Filters extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = this.context;
     this.state = {
-      query: '',
       inputName: null,
       selectedTag: null,
       selectedType: null,
@@ -18,21 +15,19 @@ export default class Filters extends React.Component {
   }
 
   selTypeChange = (evt) => {
-    this.context.saveType(evt.target.value);
     this.setState({
       selectedType: evt.target.value,
     });
   };
 
   selTagChange = (evt) => {
-    this.context.saveTag(evt.target.value);
     this.setState({
       selectedTag: evt.target.value,
     });
   };
 
   maxPrice = () => {
-    const { ads } = this.context;
+    const ads = this.props.ads;
     const prices = ads.map((ad) => {
       return ad.price;
     });
@@ -41,21 +36,19 @@ export default class Filters extends React.Component {
 
   selPriceRangeChange = (evt) => {
     document.getElementById('price').value = document.getElementById('priceSelector').value;
-    this.context.savePrice(evt.target.value);
+
     this.setState({
       selectedPrice: evt.target.value,
     });
   };
 
   inputPriceChange = (evt) => {
-    this.context.savePrice(evt.target.value);
     this.setState({
       selectedPrice: evt.target.value,
     });
   };
 
   inputNameChange = (evt) => {
-    this.context.saveName(evt.target.value);
     this.setState({
       inputName: evt.target.value,
     });
@@ -100,22 +93,22 @@ export default class Filters extends React.Component {
   filterBtn = (evt) => {
     evt.preventDefault();
     const params = this.queryParams();
-    this.context.saveQuery(params);
     this.props.setFilter(params);
+    this.props.fetchAds(params);
   };
 
   resetBtn = () => {
     this.setState({
-      query: '',
       inputName: null,
       selectedTag: null,
       selectedType: null,
       selectedPrice: 0,
     });
+    this.props.fetchAds();
   };
 
   render() {
-    const { tags } = this.context;
+    const tags = this.props.tags;
     return (
       <div className="filters-main">
         <div>
@@ -175,5 +168,3 @@ export default class Filters extends React.Component {
     );
   }
 }
-
-Filters.contextType = Context;

@@ -1,6 +1,5 @@
 import React from 'react';
 import './Ad.css';
-import { Context } from '../Adset/Context';
 import { Link } from 'react-router-dom';
 
 export default class Ad extends React.Component {
@@ -29,5 +28,3 @@ export default class Ad extends React.Component {
     return <div className="ads-grid">{this.ad()}</div>;
   }
 }
-
-Ad.contextType = Context;

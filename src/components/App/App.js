@@ -8,13 +8,14 @@ import Register from '../Register/Register';
 import Adset from '../Adset';
 import Details from '../Details/Details';
 import CreateAd from '../CreateAd/CreateAd';
-import { fetchAds } from '../../store/actions';
+import { fetchAds, fetchTags } from '../../store/actions';
 
 function App() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchAds());
+    dispatch(fetchTags());
   }, [dispatch]);
 
   return (

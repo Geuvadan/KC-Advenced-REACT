@@ -32,21 +32,9 @@ export const apiLogin = async (username, password) => {
   return json;
 };
 
-export const getAdset = async () => {
-  const adsetEndPoint = `${apiURL}/anuncios`;
-
-  const response = await fetch(adsetEndPoint, {
-    method: 'GET',
-    headers: { 'Content-Type': 'application/json' },
-    credentials: 'include',
-  });
-  const json = await response.json();
-  return json;
-};
-
-export const getAdsetFiltered = async (queryParams) => {
+export const getAdset = async (queryParams) => {
   const adsetEndPoint = `${apiURL}/anuncios?${queryParams}`;
-  console.log(adsetEndPoint);
+
   const response = await fetch(adsetEndPoint, {
     method: 'GET',
     headers: { 'Content-Type': 'application/json' },

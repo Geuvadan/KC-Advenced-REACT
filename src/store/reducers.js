@@ -4,6 +4,7 @@ const initialState = {
   ads: [],
   userLoggedIn: false,
   queryFilter: '',
+  tagsAvailable: [],
 };
 
 export function userLoggedIn(state = initialState.userLoggedIn, action) {
@@ -20,6 +21,16 @@ export function ads(state = initialState.ads, action) {
   switch (action.type) {
     case TYPES.FETCH_ADS_SUCCESS:
       return action.ads.results;
+
+    default:
+      return state;
+  }
+}
+
+export function tagsAvailable(state = initialState.tagsAvailable, action) {
+  switch (action.type) {
+    case TYPES.FETCH_TAGS_SUCCESS:
+      return action.tagsAvailable;
 
     default:
       return state;
