@@ -20,7 +20,7 @@ export function username(state = initialState.username, action) {
 export function ads(state = initialState.ads, action) {
   switch (action.type) {
     case TYPES.FETCH_ADS_SUCCESS:
-      return action.ads.results;
+      return action.ads.results ? action.ads.results : 'error';
 
     default:
       return state;
