@@ -14,6 +14,7 @@ export default class Login extends React.Component {
     const login = await apiLogin(this.state.username, this.state.password);
     if (login.success) {
       localStorage.setItem('username', this.state.username);
+      this.props.setUsername(this.state.username);
       await this.props.fetchAds();
       this.props.history.push('/adset');
     } else {

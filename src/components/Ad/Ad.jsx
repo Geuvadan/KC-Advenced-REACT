@@ -2,9 +2,9 @@ import React from 'react';
 import './Ad.css';
 import { Link } from 'react-router-dom';
 
-export default class Ad extends React.Component {
-  ad = () =>
-    this.props.ads.map((item) => {
+export default function Ad({ ads }) {
+  const ad = () =>
+    ads.map((item) => {
       return (
         <div className="ad" key={item._id}>
           <p>
@@ -24,7 +24,5 @@ export default class Ad extends React.Component {
       );
     });
 
-  render() {
-    return <div className="ads-grid">{this.ad()}</div>;
-  }
+  return <div className="ads-grid">{ad()}</div>;
 }

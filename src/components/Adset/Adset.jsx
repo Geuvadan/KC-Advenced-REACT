@@ -3,20 +3,18 @@ import './Adset.css';
 import Ad from '../Ad';
 import Filters from '../Filters';
 
-export default class Adset extends React.Component {
-  render() {
-    if (this.props.ads.length > 0) {
-      return (
-        <div className="main">
-          <Filters></Filters>
-          <div>
-            <Ad></Ad>
-          </div>
+export default function Adset({ ads, username, history }) {
+  if (ads.length > 0) {
+    return (
+      <div className="main">
+        <div>Hola {username}</div>
+        <Filters></Filters>
+        <div>
+          <Ad></Ad>
         </div>
-      );
-    } else {
-      //this.props.history.push('/login');
-      return <div>Loading... </div>;
-    }
+      </div>
+    );
+  } else {
+    return <div>Loading... </div>;
   }
 }

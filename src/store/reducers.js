@@ -7,7 +7,7 @@ const initialState = {
   tagsAvailable: [],
 };
 
-export function setUsername(state = initialState.username, action) {
+export function username(state = initialState.username, action) {
   switch (action.type) {
     case TYPES.SET_USERNAME:
       return action.username;
