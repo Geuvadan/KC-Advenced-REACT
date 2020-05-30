@@ -1,7 +1,6 @@
 import React from 'react';
 import './Login.css';
 import { Link } from 'react-router-dom';
-import { apiLogin } from '../../services/api.js';
 
 export default class Login extends React.Component {
   state = {
@@ -11,10 +10,10 @@ export default class Login extends React.Component {
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
-    const login = await apiLogin(this.state.username, this.state.password);
+    await this.props.fetchLogin(this.state.username, this.state.password);
+    const login = this.props.login;
     if (login.success) {
       localStorage.setItem('username', this.state.username);
-      this.props.setUsername(this.state.username);
       await this.props.fetchAds();
       this.props.history.push('/adset');
     } else {

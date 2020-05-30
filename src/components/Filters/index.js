@@ -8,7 +8,7 @@ function mapStateToProps(state, ownProps) {
   return {
     queryFilter: state.queryFilter,
     tags: state.tagsAvailable,
-    ads: state.ads,
+    ads: state.ads.results,
   };
 }
 

@@ -3,8 +3,9 @@ import Adset from './Adset';
 
 function mapStateToProps(state, ownProps) {
   return {
-    ads: state.ads,
-    username: state.username,
+    ads: state.ads.results,
+    success: state.ads.success,
+    username: state.login.username,
   };
 }
 

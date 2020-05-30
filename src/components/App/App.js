@@ -8,13 +8,14 @@ import Register from '../Register/Register';
 import Adset from '../Adset';
 import Details from '../Details/Details';
 import CreateAd from '../CreateAd/CreateAd';
-import { fetchAds, fetchTags, setUsername } from '../../store/actions';
+import { fetchAds, fetchTags } from '../../store/actions';
 
 function App() {
+  console.log('hola');
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setUsername(localStorage.getItem('username')));
     dispatch(fetchAds());
     dispatch(fetchTags());
   }, [dispatch]);

@@ -4,7 +4,7 @@ import Ad from './Ad';
 
 function mapStateToProps(state, ownProps) {
   return {
-    ads: state.ads,
+    ads: state.ads.results,
   };
 }
 

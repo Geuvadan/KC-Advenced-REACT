@@ -4,8 +4,10 @@ import Ad from '../Ad';
 import Filters from '../Filters';
 import { Redirect } from 'react-router-dom';
 
-export default function Adset({ ads, username, history }) {
-  if (ads === 'error') {
+export default function Adset({ ads, success, username, history }) {
+  console.log(success);
+  console.log(ads);
+  if (!success) {
     return (
       <div className="main">
         <div>No esta logueado o su sesión ha caducado</div>
@@ -13,7 +15,7 @@ export default function Adset({ ads, username, history }) {
       </div>
     );
   }
-  if (ads.length > 0) {
+  if (ads) {
     return (
       <div className="main">
         <h2 className="welcome">Hola {username}</h2>
