@@ -81,3 +81,8 @@ export const fetchLogin = (username, password) =>
       dispatch(fetchLoginFailure(error));
     }
   };
+
+export const setUsername = (username) => ({
+  type: TYPES.SET_USERNAME,
+  username,
+});

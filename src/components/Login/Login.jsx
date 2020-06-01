@@ -10,10 +10,13 @@ export default class Login extends React.Component {
 
   handleSubmit = async (evt) => {
     evt.preventDefault();
-    await this.props.fetchLogin(this.state.username, this.state.password);
+    const username = this.state.username;
+    const password = this.state.password;
+    await this.props.fetchLogin(username, password);
     const login = this.props.login;
     if (login.success) {
-      localStorage.setItem('username', this.state.username);
+      localStorage.setItem('username', username);
+      this.props.setUsername(username);
       await this.props.fetchAds();
       this.props.history.push('/adset');
     } else {

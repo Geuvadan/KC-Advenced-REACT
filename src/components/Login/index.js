@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from './Login';
-import { fetchAds, fetchLogin } from '../../store/actions';
+import { fetchAds, fetchLogin, setUsername } from '../../store/actions';
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -11,6 +11,7 @@ function mapStateToProps(state, ownProps) {
 const mapDispatchToProps = {
   fetchAds,
   fetchLogin,
+  setUsername,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Login);
