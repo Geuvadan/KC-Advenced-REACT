@@ -5,8 +5,6 @@ import Filters from '../Filters';
 import { Redirect } from 'react-router-dom';
 
 export default function Adset({ ads, success, username, history }) {
-  console.log(success);
-  console.log(ads);
   if (!success) {
     return (
       <div className="main">

@@ -11,8 +11,6 @@ import CreateAd from '../CreateAd/CreateAd';
 import { fetchAds, fetchTags } from '../../store/actions';
 
 function App() {
-  console.log('hola');
-
   const dispatch = useDispatch();
 
   useEffect(() => {
