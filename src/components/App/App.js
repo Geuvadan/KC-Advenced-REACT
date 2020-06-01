@@ -6,7 +6,7 @@ import Header from '../Header/Header';
 import Login from '../Login';
 import Register from '../Register/Register';
 import Adset from '../Adset';
-import Details from '../Details/Details';
+import Details from '../Details';
 import CreateAd from '../CreateAd/CreateAd';
 import { fetchAds, fetchTags } from '../../store/actions';
 
