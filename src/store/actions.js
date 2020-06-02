@@ -56,31 +56,11 @@ export const setFilter = (queryFilter) => ({
   queryFilter,
 });
 
-export const fetchLoginRequest = () => ({
-  type: TYPES.FETCH_LOGIN_REQUEST,
-});
-
-export const fetchLoginFailure = (error) => ({
-  type: TYPES.FETCH_LOGIN_FAILURE,
-  error,
-});
-
-export const fetchLoginSuccess = (login, username) => ({
+export const setLogin = (username, login) => ({
   type: TYPES.FETCH_LOGIN_SUCCESS,
   login,
   username,
 });
-
-export const fetchLogin = (username, password) =>
-  async function (dispatch, getState) {
-    dispatch(fetchLoginRequest());
-    try {
-      const login = await AdsApi.apiLogin(username, password);
-      dispatch(fetchLoginSuccess(login, username));
-    } catch (error) {
-      dispatch(fetchLoginFailure(error));
-    }
-  };
 
 export const setUsername = (username) => ({
   type: TYPES.SET_USERNAME,

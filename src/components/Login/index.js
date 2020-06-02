@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import Login from './Login';
-import { fetchAds, fetchLogin, setUsername } from '../../store/actions';
+import { fetchAds, setLogin, setUsername } from '../../store/actions';
 
 function mapStateToProps(state, ownProps) {
   return {
@@ -10,7 +10,7 @@ function mapStateToProps(state, ownProps) {
 
 const mapDispatchToProps = {
   fetchAds,
-  fetchLogin,
+  setLogin,
   setUsername,
 };
 

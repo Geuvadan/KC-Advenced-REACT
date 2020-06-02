@@ -10,11 +10,14 @@ export default function SignForm({ onSubmit }) {
         onSubmit(event);
       }}
     >
-      <label name="username">Nombre de usuario: </label>
-      <input type="text" onChange={handleInput} value={data.username} name="username" />
-      <label name="password">Contraseña: </label>
-      <input type="password" onChange={handleInput} value={data.password} name="password" />
-
+      <div>
+        <label name="username">Nombre de usuario: </label>
+        <input type="text" onChange={handleInput} value={data.username} name="username" />
+      </div>
+      <div>
+        <label name="password">Contraseña: </label>
+        <input type="password" onChange={handleInput} value={data.password} name="password" />
+      </div>
       <button className="button" type="submit">
         Entrar
       </button>
