@@ -54,7 +54,7 @@ export function queryFilter(state = initialState.queryFilter, action) {
 
 export function login(state = initialState.login, action) {
   switch (action.type) {
-    case TYPES.FETCH_LOGIN_SUCCESS:
+    case TYPES.SET_LOGIN:
       return {
         ...state,
         username: action.username,

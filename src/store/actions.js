@@ -57,7 +57,7 @@ export const setFilter = (queryFilter) => ({
 });
 
 export const setLogin = (username, login) => ({
-  type: TYPES.FETCH_LOGIN_SUCCESS,
+  type: TYPES.SET_LOGIN,
   login,
   username,
 });
