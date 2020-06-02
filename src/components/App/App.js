@@ -9,6 +9,7 @@ import Adset from '../Adset';
 import Details from '../Details';
 import CreateAd from '../CreateAd/CreateAd';
 import { fetchAds, fetchTags } from '../../store/actions';
+import { SignFormProvider } from '../SignContext/signContext';
 
 function App() {
   const dispatch = useDispatch();
@@ -22,15 +23,17 @@ function App() {
     <div>
       <Header></Header>
       <main>
-        <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/register" component={Register} />
-          <Route path="/adset" component={Adset} />
-          <Route path="/details/:id" component={Details} />
-          <Route path="/createad" component={CreateAd} />
+        <SignFormProvider>
+          <Switch>
+            <Route path="/login" component={Login} />
+            <Route path="/register" component={Register} />
+            <Route path="/adset" component={Adset} />
+            <Route path="/details/:id" component={Details} />
+            <Route path="/createad" component={CreateAd} />
 
-          <Redirect to="/adset" />
-        </Switch>
+            <Redirect to="/adset" />
+          </Switch>
+        </SignFormProvider>
       </main>
     </div>
   );

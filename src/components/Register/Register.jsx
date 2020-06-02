@@ -2,61 +2,33 @@ import React from 'react';
 import './Register.css';
 import { apiRegister } from '../../services/api.js';
 import { Link } from 'react-router-dom';
+import { useSignForm } from '../SignContext/signContext';
+import SignForm from '../SignForm/SignForm';
 
-export default class Register extends React.Component {
-  state = {
-    username: '',
-    password: '',
-  };
+export default function Register(props) {
+  const { data } = useSignForm();
 
-  handleSubmit = async (evt) => {
+  const handleSubmit = async (evt) => {
     evt.preventDefault();
-    const register = await apiRegister(this.state.username, this.state.password);
+    const { username, password } = data;
+    const register = await apiRegister(username, password);
     if (register.success) {
-      this.props.history.push('/login');
+      props.history.push('/login');
     } else {
       alert(register.error);
     }
   };
 
-  handleInput = (evt) => {
-    const name = evt.target.name;
-    const value = evt.target.value;
+  return (
+    <div className="register-main">
+      <h2>Register</h2>
+      <SignForm onSubmit={handleSubmit}></SignForm>
 
-    if (name === 'username') {
-      this.setState({
-        username: value,
-      });
-    } else {
-      this.setState({
-        password: value,
-      });
-    }
-  };
-
-  render() {
-    return (
-      <div className="register-main">
-        <h2>Register</h2>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label name="username">Nombre de usuario: </label>
-            <input name="username" type="text" onChange={this.handleInput} />
-          </div>
-          <div>
-            <label name="password">Contraseña: </label>
-            <input name="password" type="password" onChange={this.handleInput} />
-          </div>
-          <div>
-            <button className="button">Crear cuenta</button>
-          </div>
-        </form>
-        <p>
-          <small>
-            Si ya tienes cuenta, <Link to="/login">haz login</Link>
-          </small>
-        </p>
-      </div>
-    );
-  }
+      <p>
+        <small>
+          Si ya tienes cuenta, <Link to="/login">haz login</Link>
+        </small>
+      </p>
+    </div>
+  );
 }

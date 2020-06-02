@@ -45,15 +45,11 @@ export default class Login extends React.Component {
         <h2>Login</h2>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label name="username" htmlFor="username">
-              Nombre de usuario:{' '}
-            </label>
+            <label name="username">Nombre de usuario: </label>
             <input name="username" type="text" onChange={this.handleInput} />
           </div>
           <div>
-            <label name="password" htmlFor="password">
-              Contraseña:{' '}
-            </label>
+            <label name="password">Contraseña: </label>
             <input name="password" type="password" onChange={this.handleInput} />
           </div>
           <div>
