@@ -65,13 +65,3 @@ export function login(state = initialState.login, action) {
       return state;
   }
 }
-
-export function username(state = initialState.queryFilter, action) {
-  switch (action.type) {
-    case TYPES.SET_USERNAME:
-      return action.username;
-
-    default:
-      return state;
-  }
-}

@@ -14,4 +14,3 @@ export const SET_FILTER = 'SET_FILTER';
 export const DELETE_FILTER = 'DELETE_FILTER';
 
 export const SET_LOGIN = 'SET_LOGIN';
-export const SET_USERNAME = 'SET_USERNAME';

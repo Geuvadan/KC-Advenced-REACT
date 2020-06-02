@@ -15,7 +15,6 @@ export default function Login(props) {
     if (login.success) {
       await props.setLogin(username, login);
       localStorage.setItem('username', username);
-      props.setUsername(username);
       await props.fetchAds();
       props.history.push('/adset');
     } else {

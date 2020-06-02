@@ -61,8 +61,3 @@ export const setLogin = (username, login) => ({
   login,
   username,
 });
-
-export const setUsername = (username) => ({
-  type: TYPES.SET_USERNAME,
-  username,
-});
