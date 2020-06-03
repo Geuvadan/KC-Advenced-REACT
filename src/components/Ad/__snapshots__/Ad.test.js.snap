@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Ad Snapshot testing 1`] = `
+<div
+  className="ads-grid"
+>
+  <div
+    className="ad"
+    key="1234567890"
+  >
+    <p>
+      <b>
+        Nombre:
+      </b>
+       
+      test_Ad_1
+    </p>
+    <p>
+      <b>
+        Operación:
+      </b>
+       
+      Venta
+    </p>
+    <p>
+      <b>
+        Precio:
+      </b>
+       
+      100
+      €
+    </p>
+    <Link
+      className="button"
+      to="/details/1234567890"
+    >
+      Más Información
+    </Link>
+  </div>
+  <div
+    className="ad"
+    key="1234567890"
+  >
+    <p>
+      <b>
+        Nombre:
+      </b>
+       
+      test_Ad_1
+    </p>
+    <p>
+      <b>
+        Operación:
+      </b>
+       
+      Venta
+    </p>
+    <p>
+      <b>
+        Precio:
+      </b>
+       
+      100
+      €
+    </p>
+    <Link
+      className="button"
+      to="/details/1234567890"
+    >
+      Más Información
+    </Link>
+  </div>
+</div>
+`;
