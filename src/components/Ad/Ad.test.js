@@ -38,7 +38,7 @@ describe('Ad', () => {
     expect(wrapper.hasClass('ads-grid')).toBe(true);
   });
 
-  test('Snapshot testing', () => {
+  test('Should render same number of ads', () => {
     expect(wrapper.find('.ad')).toHaveLength(props.ads.length);
   });
 });
